@@ -4,4 +4,15 @@
 
 
 
+// Element.DomNodeCollection
+
+const nodes = Array.from(node.getElementsByClassName(DomNodeCollection))
+
+class DomNodeCollection () {
+  constructor(nodes) {
+    this.nodes = nodes;
+  }
+}
+
+
 module.exports = DomNodeCollection;

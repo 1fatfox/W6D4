@@ -86,14 +86,25 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./lib/dom_node_collection.js":
+/*!************************************!*\
+  !*** ./lib/dom_node_collection.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module parse failed: Unexpected token (11:24)\\nYou may need an appropriate loader to handle this file type.\\n| const nodes = Array.from(node.getElementsByClassName(DomNodeCollection))\\n| \\n> class DomNodeCollection () {\\n|   constructor(nodes) {\\n|     this.nodes = nodes;\");\n\n//# sourceURL=webpack:///./lib/dom_node_collection.js?");
+
+/***/ }),
+
 /***/ "./lib/main.js":
 /*!*********************!*\
   !*** ./lib/main.js ***!
   \*********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (2:15)\\nYou may need an appropriate loader to handle this file type.\\n| \\n> function window.$l (arg) {\\n| \\n| };\");\n\n//# sourceURL=webpack:///./lib/main.js?");
+eval("const DomNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./lib/dom_node_collection.js\");\n\n\nwindow.$l = (arg) => {\n\n};\n\nconst select = (selector) => {\n  const nodes = document.querySelectorAll(selector);\n  const nodeArr = Array.from(nodes);\n  return new DomNodeCollection(nodesArr);\n}\n\n\n//# sourceURL=webpack:///./lib/main.js?");
 
 /***/ })
 

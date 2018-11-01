@@ -21,10 +21,6 @@ const select = (selector) => {
 }
 
 
-remove() {
-  this.each(node => node.parentNode.removeChild(node));
-}
-
 attr(key, val) {
   if (typeof val === "string") {
     this.each(node => node.setAttribute(key, val));
@@ -39,4 +35,37 @@ addClass(newClass) {
 
 removeClass(oldClass) {
   this.each(node => node.classList.remove(oldClass));
+}
+
+children() {
+  let childNodes = [];
+  this.each((node) => {
+    const childNodeList = node.children;
+    childNodes = childNodes.concat(Array.from(childNodeList));
+  });
+  return new DomNodeCollection(childNodes);
+}
+
+parent() {
+  const parentNodes = [];
+  this.each(({ parentNode }) => {
+    // we apply 'visited' property to prevent adding duplicate parents
+    if (!parentNode.visited) {
+      parentNodes.push(parentNode);
+      parentNode.visited = true;
+    }
+  });
+
+  find(selector) {
+  let foundNodes = [];
+  this.each((node) => {
+    const nodeList = node.querySelectorAll(selector);
+    foundNodes = foundNodes.concat(Array.from(nodeList));
+  });
+  return new DomNodeCollection(foundNodes);
+}
+
+
+remove() {
+  this.each(node => node.parentNode.removeChild(node));
 }

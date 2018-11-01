@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (24:9)\\nYou may need an appropriate loader to handle this file type.\\n| \\n| \\n> remove() {\\n|   this.each(node => node.parentNode.removeChild(node));\\n| }\");\n\n//# sourceURL=webpack:///./lib/main.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (24:15)\\nYou may need an appropriate loader to handle this file type.\\n| \\n| \\n> attr(key, val) {\\n|   if (typeof val === \\\"string\\\") {\\n|     this.each(node => node.setAttribute(key, val));\");\n\n//# sourceURL=webpack:///./lib/main.js?");
 
 /***/ })
 

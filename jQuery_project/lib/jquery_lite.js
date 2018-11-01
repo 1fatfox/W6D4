@@ -104,7 +104,7 @@ eval("throw new Error(\"Module parse failed: Unexpected token (11:24)\\nYou may 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const DomNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./lib/dom_node_collection.js\");\n\n\nwindow.$l = (arg) => {\n\n};\n\nconst select = (selector) => {\n  const nodes = document.querySelectorAll(selector);\n  const nodeArr = Array.from(nodes);\n  return new DomNodeCollection(nodesArr);\n}\n\n\n//# sourceURL=webpack:///./lib/main.js?");
+eval("const DomNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./lib/dom_node_collection.js\");\n\n\nwindow.$l = (arg) => {\n  switch (typeof arg) {\n  case \"function\":\n    return registerDocReadyCallback(arg);\n  case \"string\":\n    return getNodesFromDom(arg);\n  case \"object\":\n    if (arg instanceof HTMLElement) {\n      return new DomNodeCollection([arg]);\n    }\n  }\n};\n\nconst select = (selector) => {\n  const nodes = document.querySelectorAll(selector);\n  const nodeArr = Array.from(nodes);\n  return new DomNodeCollection(nodesArr);\n}\n\n\n//# sourceURL=webpack:///./lib/main.js?");
 
 /***/ })
 
